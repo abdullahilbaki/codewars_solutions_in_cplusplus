@@ -1,20 +1,27 @@
-#include <string>
-#include <cassert>
+#include <igloo/igloo_alt.h>
+using namespace igloo;
 
 // solution
+#include <string>
+
 std::string removeExclamationMarks(std::string str) {
     str.erase(std::remove(str.begin(), str.end(), '!'), str.end());
     return str;
 }
 
+
+// unit test
+Describe(RemoveExclamationMarks) {
+    It(BasicTests) {
+        Assert::That(removeExclamationMarks("Hello World!"), Equals("Hello World"));
+        Assert::That(removeExclamationMarks("Hello World!!!"), Equals("Hello World"));
+        Assert::That(removeExclamationMarks("Hi! Hello!"), Equals("Hi Hello"));
+        Assert::That(removeExclamationMarks("Hi!!! Hello!"), Equals("Hi Hello"));
+        Assert::That(removeExclamationMarks("Hi! He!l!lo!"), Equals("Hi Hello"));
+    }
+};
+
 int main()
 {
-    // basic tests
-    assert(removeExclamationMarks("Hello World!") == ("Hello World"));
-    assert(removeExclamationMarks("Hello World!!!") == ("Hello World"));
-    assert(removeExclamationMarks("Hi! Hello!") == ("Hi Hello"));
-    assert(removeExclamationMarks("Hi!!! Hello!") == ("Hi Hello"));
-    assert(removeExclamationMarks("Hi! He!l!lo!") == ("Hi Hello"));
-
-    return 0;
+    return TestRunner::RunAllTests();
 }
