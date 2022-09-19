@@ -3,6 +3,7 @@ using namespace igloo;
 
 #include <string>
 
+// solution
 std::string how_much_i_love_you(int n) {
     if (n % 6 == 1) return "I love you";
     if (n % 6 == 2) return "a little";
@@ -12,6 +13,7 @@ std::string how_much_i_love_you(int n) {
     return "not at all";
 }
 
+// unit test
 Describe(decode)
 {
     It(basic_tests)
