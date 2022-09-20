@@ -14,8 +14,6 @@ std::vector<uint64_t> powers_of_two(int n) {
 }
 
 // unit test
-#include <vector>
-#include <cstdint>
 
 Describe(Fixed_tests) {
     It(Sample_cases) {
