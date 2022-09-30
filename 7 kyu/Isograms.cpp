@@ -4,6 +4,7 @@ using namespace igloo;
 // solution
 #include <algorithm>
 #include <cctype>
+#include <string>
 bool is_isogram(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(), ::tolower);
     std::sort(str.begin(), str.end());
