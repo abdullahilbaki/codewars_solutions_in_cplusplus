@@ -2,16 +2,17 @@
 using namespace igloo;
 
 // solution
-#include <string>
 #include <algorithm>
+#include <string>
 
-std::string abbrevName(std::string name)
-{
+std::string abbrevName(std::string name) {
     std::string s = name;
-    std::transform(s.cbegin(), s.cend(), s.begin(), [](unsigned char c) { return std::toupper(c); });
+    std::transform(s.cbegin(), s.cend(), s.begin(),
+                   [](unsigned char c) { return std::toupper(c); });
     std::string sc{};
     for (size_t i{}; i < s.length(); i++) {
-        if (i == 0) sc.push_back(s[i]);
+        if (i == 0)
+            sc.push_back(s[i]);
         else if (s[i] == ' ') {
             sc.push_back('.');
             sc.push_back(s[i + 1]);
