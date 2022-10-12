@@ -2,13 +2,12 @@
 using namespace igloo;
 
 // solution
-#include <string>
 #include <map>
+#include <string>
 
-auto DNAStrand = [](const std::string& dna)
-{
-    std::string str{ dna };
-    std::map<char, char> m{ {'A', 'T'}, {'C', 'G'}};
+auto DNAStrand = [](const std::string& dna) {
+    std::string str{dna};
+    std::map<char, char> m{{'A', 'T'}, {'C', 'G'}};
     for (auto& c : str) {
         for (const auto& i : m) {
             if (c == i.first) {
@@ -24,20 +23,12 @@ auto DNAStrand = [](const std::string& dna)
     return str;
 };
 
-
 // unit test
-Describe(ExampleTests)
-{
-    It(BasicTests)
-    {
+Describe(ExampleTests){
+    It(BasicTests){
         Assert::That(DNAStrand("AAAA"), Equals("TTTT"));
         Assert::That(DNAStrand("ATTGC"), Equals("TAACG"));
-        Assert::That(DNAStrand("GTAT"), Equals("CATA"));
-    }
+        Assert::That(DNAStrand("GTAT"), Equals("CATA"));}
 };
 
-
-int main()
-{
-    return TestRunner::RunAllTests();
-}
+int main() { return TestRunner::RunAllTests(); }
