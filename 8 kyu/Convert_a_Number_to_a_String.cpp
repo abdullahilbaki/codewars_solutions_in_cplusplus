@@ -5,7 +5,6 @@ using namespace igloo;
 #include <string>
 auto number_to_string = [](int num) { return std::to_string(num); };
 
-
 // unit test
 Describe(number_to_string_function)
 {
